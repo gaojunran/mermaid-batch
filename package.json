@@ -10,6 +10,7 @@
 		"typescript": "^5"
 	},
 	"dependencies": {
+		"@mermaid-js/mermaid-cli": "^11.10.1",
 		"commander": "^14.0.1",
 		"fast-glob": "^3.3.3",
 		"openai": "^5.20.2",

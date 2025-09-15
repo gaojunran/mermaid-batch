@@ -1,6 +1,6 @@
 # mermaid-batch
 
-基于 mermaid 和大模型 API，生成令人讨厌的类图（[class diagram](https://mermaid.js.org/syntax/classDiagram.html)）报告。
+基于 mermaid 和大模型 API，为代码批量生成 **令人讨厌** 的类图（[class diagram](https://mermaid.js.org/syntax/classDiagram.html)）报告。
 
 ## 说明 📢
 
@@ -8,13 +8,13 @@
 
 ## 使用方法 📚
 
-1. 安装 [bun](https://bun.sh) 和 [mermaid-cli](https://github.com/mermaid-js/mermaid-cli)。
+1. 安装 [bun](https://bun.sh)。克隆此仓库，并在仓库文件夹中运行 `bun install`。
 
-2. 克隆此仓库，并修改 `config.toml` 文件。
+2. 修改 `config.toml` 文件。
 
 3. 导出 `OPENAI_API_KEY` 环境变量。如果您的文件数较多，建议使用免费的大模型端口如 [glm-4.5-flash](https://bigmodel.cn/)。
 
-4. 在本仓库文件夹中运行 `bun run index.ts <subcommand>`：
+4. 在仓库文件夹中运行 `bun run index.ts <subcommand>`：
 
 子命令可以是：
 
@@ -30,6 +30,8 @@
 
 #### 大模型总是错误输出一些 mermaid 语法，怎么办？
 
-你可以在 `config.toml` 中编写 `rewrites` 参数，以正则表达式的方式替换错误的语法。
+你可以在 `config.toml` 中编写 `rewrites` 参数，以正则表达式的方式替换错误的语法。也可以在 `config.toml` 中的 `prompt` 中添加提示信息，提示大模型规避这种错误。
 
-也可以在 `config.toml` 中的 `prompt` 中添加提示信息，提示大模型规避这种错误。
+#### 我的老师想要 Word 报告，而不是 Markdown，怎么办？
+
+你可以使用 [pandoc](https://pandoc.org/) 将生成的 markdown 文件转换为 Word 文件。事实上这个项目的大多数情况都是为了生成 Word 报告，本项目生成 Markdown 是为了规避 OpenXML 处理的复杂性。

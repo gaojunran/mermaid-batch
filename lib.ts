@@ -111,7 +111,7 @@ async function generateImage(file: string) {
     return;
   }
 	await new Promise<void>((resolve, reject) => {
-		exec(`mmdc -i "${file}" -o "${pngFileName}"`, (error, _, stderr) => {
+		exec(`bunx mmdc -i "${file}" -o "${pngFileName}"`, (error, _, stderr) => {
 			if (error) {
 				console.error(`Error generating PNG for ${file}:`, stderr);
 				reject(error);

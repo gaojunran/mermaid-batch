@@ -3,7 +3,6 @@ import { Command } from "commander";
 import {
 	listFiles,
 	processFile,
-	// fixupFiles,
 	generateMarkdown,
 	readConfigToml,
 } from "./lib";
@@ -18,7 +17,7 @@ async function main() {
 		baseURL: config?.base_url ?? "https://api.openai.com/v1",
 	});
 
-	const model = config?.model ?? "glm-4.5-flash";
+	const model = config?.model ?? "";
 
 	const patterns = config?.scan_patterns ?? [];
 	const cwd = path.resolve(config?.scan_path ?? ".");
