@@ -1,0 +1,7 @@
+# Use mise to auto-activate the env var of the project.
+
+[env]
+OPENAI_API_KEY = "{{env.GLM_API_KEY}}"
+
+[tools]
+bun = "latest"

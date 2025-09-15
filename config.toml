@@ -1,0 +1,7 @@
+base_url = "https://open.bigmodel.cn/api/paas/v4/"
+model = "glm-4.5-flash"
+prompt = "请基于以下 Java 文件生成 mermaid 类图代码，你的输出中应该仅包含 mermaid 代码，不要包括 markdown 的标记，如 ``` 等: "
+
+scan_path = "../online_exam/exam-springboot"
+scan_patterns = ["src/main/java/**/*.java"]
+output_path = "./output"
