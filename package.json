@@ -10,6 +10,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "fast-glob": "^3.3.3"
+    "fast-glob": "^3.3.3",
+    "openai": "^5.20.2"
   }
 }
