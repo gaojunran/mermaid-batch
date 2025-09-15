@@ -1,7 +1,29 @@
+# You should modify them to suit your needs.
+
+# 大模型 api host
 base_url = "https://open.bigmodel.cn/api/paas/v4/"
+
+# 大模型 model name
 model = "glm-4.5-flash"
+
+# 指令的一部分。这部分后面会追加当前文件内容。
 prompt = "请基于以下 Java 文件生成 mermaid 类图代码，你的输出中应该仅包含 mermaid 代码，不要包括 markdown 的标记，如 ``` 等: "
 
-scan_path = "../online_exam/exam-springboot"
+# 要扫描的代码路径，可填写基于 cwd 的相对路径
+scan_path  = "../online_exam/exam-springboot"
+
+# 要扫描的文件 globs
 scan_patterns = ["src/main/java/**/*.java"]
+
+# 输出路径。须确保路径存在。
 output_path = "./output"
+
+# 重写规则。大模型可能会输出错误的 mermaid 代码，你可以通过重写规则进行修正。
+# from 可填写正则表达式。
+[[rewrites]]
+from = "<<interface>>"
+to = ""
+
+[[rewrites]]
+from = "interface "
+to = "class "

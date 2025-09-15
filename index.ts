@@ -25,6 +25,7 @@ async function main() {
 	const prompt =
 		config?.prompt ??
 		"Generate mermaid class diagram code based on the following file. Your output should only contain mermaid code, without any markdown tags like ``` etc.";
+	const rewrites = config?.rewrites ?? [];
 	const output = path.resolve(config?.output_path ?? "./output");
 
 	const program = new Command();
@@ -51,6 +52,7 @@ async function main() {
 						files.length,
 						cwd,
 						prompt,
+						rewrites,
 						output,
 					);
 				}

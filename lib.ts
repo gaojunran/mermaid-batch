@@ -13,6 +13,12 @@ interface Config {
 	scan_path: string;
 	scan_patterns: string[];
 	output_path: string;
+  rewrites: Rewrite[];
+}
+
+interface Rewrite {
+  from: string;
+  to: string;
 }
 
 function fileExists(filePath: string) {
@@ -53,6 +59,7 @@ export async function processFile(
 	count: number,
 	cwd: string,
 	prompt: string,
+  rewrites: Rewrite[],
 	output: string,
 ) {
 	try {
@@ -79,6 +86,11 @@ export async function processFile(
 			});
 			let result = response.choices[0]?.message?.content ?? "";
       result = result.replace(/```mermaid/g, "").replace(/```/g, "").trim();
+
+      for (const { from, to } of rewrites) {
+        const regex = new RegExp(from, "g");
+        result = result.replace(regex, to);
+      }
 
 			await fs.writeFile(newFilePath, result, "utf-8");
 			console.log(`Generated: ${newFilePath}`);
